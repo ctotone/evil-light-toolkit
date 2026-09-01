@@ -38,3 +38,7 @@ A normal click on a preset loads it into Foundry's native Ambient Light Palette.
 - Module id: `evil-light-toolkit`
 - Title: `Evilbram Lighting Toolkit`
 - Foundry compatibility: V14
+
+## Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md) for release notes.
