@@ -1,0 +1,33 @@
+{
+  "id": "evil-light-toolkit",
+  "title": "Evilbram Lighting Toolkit",
+  "description": "A Foundry VTT V14 toolkit for scene lighting, SmallTime-aware darkness control, and reusable Ambient Light presets.",
+  "authors": [
+    {
+      "name": "Evilbram"
+    }
+  ],
+  "version": "0.1.17-dev",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/evil-light-toolkit.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}
