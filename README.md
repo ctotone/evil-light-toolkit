@@ -1,44 +1,51 @@
 # Evilbram Lighting Toolkit
 
-A Foundry VTT V14 module for preparing scene lighting, managing reusable Ambient Light presets,
-and integrating scene darkness with SmallTime when available.
+Module Foundry VTT V14 destiné à préparer l’éclairage des scènes, gérer des presets de lumières réutilisables
+et intégrer le pilotage de l’obscurité avec SmallTime lorsqu’il est disponible.
 
-## Features
+## Fonctionnalités
 
-- Scene profiles: Exterior, Interior, and Darkness.
-- SmallTime-aware darkness linking for Exterior and Interior scenes.
-- Manual Day, Dusk, Night, and Restore controls.
-- Built-in light presets:
-  - Candle
-  - Oil Lamp
-  - Exterior Lantern
-  - Campfire
-  - Lit Window
-- Visibility tools:
-  - Transition Halo
-  - Vision Zone
-- Drag-and-drop placement on the Scene.
-- Click-to-load integration with Foundry V14's Ambient Light Palette.
-- Export of a selected Ambient Light as a portable JSON preset.
+- Profils de scène :
+  - Extérieur
+  - Intérieur
+  - Obscurité
+- Liaison automatique à SmallTime pour les profils Extérieur et Intérieur lorsque SmallTime est actif.
+- Réglages manuels :
+  - Jour
+  - Crépuscule
+  - Nuit
+  - Restaurer
+- Presets de lumières intégrés :
+  - Bougie
+  - Lampe à pétrole
+  - Lanterne extérieure
+  - Feu de camp
+  - Fenêtre éclairée
+- Outils de visibilité :
+  - Halo de transition
+  - Zone de vision
+- Placement des presets par glisser-déposer directement sur la scène.
+- Chargement d’un preset dans la palette native des lumières de Foundry VTT V14 par simple clic.
+- Export d’une lumière sélectionnée sous forme de preset JSON réutilisable.
 
-## Requirements
+## Prérequis
 
 - Foundry VTT V14.
-- SmallTime is optional. When active, compatible scene profiles automatically link to it.
+- SmallTime est optionnel. Lorsqu’il est actif, les profils de scène compatibles peuvent s’y lier automatiquement.
 
-## Usage
+## Utilisation
 
-Open the Lighting controls and click the Evilbram Lighting Toolkit button.
+Ouvrez les contrôles d’éclairage de Foundry puis cliquez sur le bouton Evilbram Lighting Toolkit.
 
-Choose a scene profile, adjust the atmosphere if needed, then drag a light preset onto the Scene.
-A normal click on a preset loads it into Foundry's native Ambient Light Palette.
+Choisissez un profil de scène, ajustez l’ambiance si nécessaire, puis glissez un preset de lumière sur la scène.
+Un clic simple sur un preset le charge dans la palette native des lumières de Foundry.
 
 ## Package
 
-- Module id: `evil-light-toolkit`
-- Title: `Evilbram Lighting Toolkit`
-- Foundry compatibility: V14
+- Identifiant du module : `evil-light-toolkit`
+- Nom : `Evilbram Lighting Toolkit`
+- Compatibilité Foundry : V14
 
 ## Changelog
 
-See [`CHANGELOG.md`](CHANGELOG.md) for release notes.
+Consultez [`CHANGELOG.md`](CHANGELOG.md) pour le détail des versions.

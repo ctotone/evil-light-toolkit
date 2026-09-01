@@ -1,37 +1,41 @@
 # Changelog
 
-All notable changes to Evilbram Lighting Toolkit are documented in this file.
+Toutes les évolutions notables de Evilbram Lighting Toolkit sont documentées dans ce fichier.
 
 ## 1.0.0
 
-Initial public release for Foundry VTT V14.
+Première version publique pour Foundry VTT V14.
 
-### Scene lighting
+### Éclairage des scènes
 
-- Added Exterior, Interior, and Darkness scene profiles.
-- Added SmallTime-aware darkness linking for Exterior and Interior scenes.
-- Added manual Day, Dusk, Night, and Restore darkness controls.
-- Added a dedicated Darkness profile for scenes that must remain fully dark.
+- Ajout des profils de scène Extérieur, Intérieur et Obscurité.
+- Ajout de la liaison SmallTime pour piloter l’obscurité des scènes Extérieur et Intérieur.
+- Ajout des réglages manuels Jour, Crépuscule, Nuit et Restaurer.
+- Ajout d’un profil Obscurité dédié aux scènes qui doivent rester totalement noires.
 
-### Light presets
+### Presets de lumière
 
-- Added calibrated Ambient Light presets:
-  - Candle
-  - Oil Lamp
-  - Exterior Lantern
-  - Campfire
-  - Lit Window
-- Added Transition Halo for extending low-light visibility beyond a primary light source.
-- Added Vision Zone for wall-constrained visibility support.
+- Ajout des presets calibrés :
+  - Bougie
+  - Lampe à pétrole
+  - Lanterne extérieure
+  - Feu de camp
+  - Fenêtre éclairée
+- Ajout du Halo de transition pour prolonger très légèrement la visibilité au-delà d’une source principale.
+- Ajout de la Zone de vision pour fournir une zone de visibilité contrainte par les murs.
 
-### Workflow
+### Utilisation
 
-- Added drag-and-drop placement of presets directly onto the Scene.
-- Added click-to-load integration with Foundry VTT V14's native Ambient Light Palette.
-- Added export of a selected Ambient Light as a reusable JSON preset.
+- Ajout du placement des presets par glisser-déposer directement sur la scène.
+- Ajout du chargement des presets dans la palette native des lumières de Foundry VTT V14 par simple clic.
+- Ajout de l’export d’une lumière sélectionnée sous forme de preset JSON réutilisable.
 
 ### Interface
 
-- Added a dedicated GM-only Lighting control.
-- Added a grouped DialogV2 interface for scene configuration, atmosphere, light sources, and visibility tools.
-- Added SmallTime status display in the toolkit window.
+- Ajout d’un contrôle dédié dans les outils d’éclairage, réservé au MJ.
+- Ajout d’une interface DialogV2 regroupant :
+  - configuration de scène ;
+  - ambiance ;
+  - sources de lumière ;
+  - outils de visibilité.
+- Ajout de l’affichage de l’état de SmallTime dans la fenêtre du toolkit.
