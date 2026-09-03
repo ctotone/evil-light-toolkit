@@ -24,6 +24,24 @@ export async function applySceneProfile(profile) {
   ui.notifications.info(game.i18n.localize("EVIL_LIGHT_TOOLKIT.Done"));
 }
 
+export async function setSceneGridScale(distance, units) {
+  if (!game.user?.isGM) return ui.notifications.warn(game.i18n.localize("EVIL_LIGHT_TOOLKIT.GmOnly"));
+  const scene = canvas?.scene;
+  if (!scene) return ui.notifications.warn(game.i18n.localize("EVIL_LIGHT_TOOLKIT.NoScene"));
+
+  const numericDistance = Number(distance);
+  if (!Number.isFinite(numericDistance) || numericDistance <= 0) {
+    return ui.notifications.warn(game.i18n.localize("EVIL_LIGHT_TOOLKIT.InvalidGridDistance"));
+  }
+
+  await scene.update({
+    "grid.distance": numericDistance,
+    "grid.units": String(units ?? "").trim()
+  });
+
+  ui.notifications.info(game.i18n.localize("EVIL_LIGHT_TOOLKIT.GridScaleApplied"));
+}
+
 export async function setCalibrationDarkness(key) {
   if (!game.user?.isGM) return ui.notifications.warn(game.i18n.localize("EVIL_LIGHT_TOOLKIT.GmOnly"));
   const scene = canvas?.scene;
@@ -54,6 +72,7 @@ async function animateSceneDarkness(scene, darknessLevel) {
 function exteriorNightCompatibleUpdate() {
   const smallTimeActive = game.modules.get("smalltime")?.active === true;
   return {
+    "backgroundColor": "#000000",
     "environment.globalLight.enabled": true,
     "environment.globalLight.darkness.min": 0,
     "environment.globalLight.darkness.max": 1,
@@ -67,6 +86,7 @@ function exteriorNightCompatibleUpdate() {
 function interiorNightCompatibleUpdate() {
   const smallTimeActive = game.modules.get("smalltime")?.active === true;
   return {
+    "backgroundColor": "#000000",
     "environment.globalLight.enabled": false,
     "environment.darknessLevelLock": false,
     ...(smallTimeActive
@@ -79,6 +99,7 @@ function interiorNightCompatibleUpdate() {
 function totalDarknessUpdate() {
   const smallTimeActive = game.modules.get("smalltime")?.active === true;
   return {
+    "backgroundColor": "#000000",
     "environment.globalLight.enabled": false,
     "environment.darknessLevel": 1,
     ...(smallTimeActive ? { "flags.smalltime.darkness-link": false } : {})

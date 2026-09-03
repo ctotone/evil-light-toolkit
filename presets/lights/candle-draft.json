@@ -11,8 +11,8 @@
     "hidden": false,
     "rotation": 0,
     "config": {
-      "dim": 7,
-      "bright": 4.2,
+      "dim": 3.5,
+      "bright": 2.1,
       "color": "#f8a04f",
       "alpha": 0.55,
       "luminosity": 0.65,

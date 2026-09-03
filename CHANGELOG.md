@@ -2,6 +2,35 @@
 
 Toutes les évolutions notables de Evilbram Lighting Toolkit sont documentées dans ce fichier.
 
+## 1.1.0
+
+Deuxième version publique pour Foundry VTT V14.
+
+### Configuration de scène
+
+- Les profils Extérieur, Intérieur et Obscurité appliquent désormais également une couleur de fond noire (`#000000`) à la scène.
+- Ajout d’un réglage direct de l’échelle de distance de la grille depuis le toolkit :
+  - Distance par case ;
+  - Unités ;
+  - bouton Appliquer.
+- Le réglage de distance et d’unités ne modifie pas la taille de grille en pixels.
+
+### Presets de lumière
+
+- Ajout du preset Lumière neutre.
+- Recalibrage global des rayons Bright et Dim des presets intégrés avec une réduction de 50 % de leur taille.
+- Conservation des autres paramètres visuels et mécaniques des presets.
+
+### Interface
+
+- Réduction de l’encombrement général de la fenêtre :
+  - largeur réduite ;
+  - typographie légèrement plus petite ;
+  - boutons et blocs plus compacts ;
+  - espacements ajustés.
+- Ajout de la réduction et de la restauration de la fenêtre par double-clic sur son bandeau supérieur.
+- Conservation de l’interface redimensionnable et du bouton de fermeture.
+
 ## 1.0.0
 
 Première version publique pour Foundry VTT V14.

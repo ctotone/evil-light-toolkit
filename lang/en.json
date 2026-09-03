@@ -36,5 +36,10 @@
   "EVIL_LIGHT_TOOLKIT.SmallTimeLinked": "SmallTime linked to Scene",
   "EVIL_LIGHT_TOOLKIT.NoPresets": "No presets available.",
   "EVIL_LIGHT_TOOLKIT.FooterHint": "Select one light on the Scene before exporting it.",
-  "EVIL_LIGHT_TOOLKIT.Close": "Close"
+  "EVIL_LIGHT_TOOLKIT.Close": "Close",
+  "EVIL_LIGHT_TOOLKIT.GridDistance": "Distance",
+  "EVIL_LIGHT_TOOLKIT.GridUnits": "Units",
+  "EVIL_LIGHT_TOOLKIT.Apply": "Apply",
+  "EVIL_LIGHT_TOOLKIT.InvalidGridDistance": "Grid distance must be greater than 0.",
+  "EVIL_LIGHT_TOOLKIT.GridScaleApplied": "Grid distance scale applied."
 }

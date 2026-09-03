@@ -11,8 +11,8 @@
     "hidden": false,
     "rotation": 0,
     "config": {
-      "dim": 18,
-      "bright": 0,
+      "dim": 9.0,
+      "bright": 0.0,
       "color": null,
       "alpha": 0.05,
       "luminosity": 0,

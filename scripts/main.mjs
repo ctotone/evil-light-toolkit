@@ -5,7 +5,7 @@ import {
   exportControlledAmbientLight,
   placePresetAtCoordinates
 } from "./export-import.mjs";
-import { applySceneProfile, setCalibrationDarkness, restorePreviousDarkness } from "./scene-tools.mjs";
+import { applySceneProfile, setCalibrationDarkness, restorePreviousDarkness, setSceneGridScale } from "./scene-tools.mjs";
 
 const DROP_TYPE = `${MODULE_ID}.ambient-light-preset`;
 let builtinPresets = [];
@@ -83,7 +83,7 @@ async function onToolkitClick(event) {
   const actionButton = event.target?.closest?.(".evil-light-toolkit-dialog [data-elt-action]");
   if (actionButton) {
     event.preventDefault();
-    await executeToolkitAction(actionButton.dataset.eltAction);
+    await executeToolkitAction(actionButton.dataset.eltAction, actionButton.closest(".evil-light-toolkit-dialog"));
     return;
   }
 
@@ -96,11 +96,16 @@ async function onToolkitClick(event) {
   );
 }
 
-async function executeToolkitAction(action) {
+async function executeToolkitAction(action, dialog = null) {
   switch (action) {
     case "scene-exterior": return applySceneProfile("exterior");
     case "scene-interior": return applySceneProfile("interior");
     case "scene-darkness": return applySceneProfile("darkness");
+    case "scene-grid-scale": {
+      const distanceInput = dialog?.querySelector?.("[data-elt-grid-distance]");
+      const unitsInput = dialog?.querySelector?.("[data-elt-grid-units]");
+      return setSceneGridScale(distanceInput?.valueAsNumber, unitsInput?.value ?? "");
+    }
     case "darkness-day": return setCalibrationDarkness("day");
     case "darkness-dusk": return setCalibrationDarkness("dusk");
     case "darkness-night": return setCalibrationDarkness("night");
@@ -119,9 +124,10 @@ function openToolkitDialog() {
     window: {
       title: MODULE_TITLE,
       icon: "fa-solid fa-lightbulb",
+      minimizable: true,
       resizable: true
     },
-    position: { width: 720 },
+    position: { width: 640 },
     content,
     buttons: [{
       action: "close",
@@ -133,6 +139,9 @@ function openToolkitDialog() {
 }
 
 function renderToolkitContent() {
+  const sceneData = canvas?.scene?.toObject?.() ?? {};
+  const gridDistance = Number(sceneData.grid?.distance ?? 1);
+  const gridUnits = escapeHtmlAttribute(sceneData.grid?.units ?? "");
   const smallTimeActive = game.modules.get("smalltime")?.active === true;
   const smallTimeLinked = smallTimeActive
     && canvas?.scene?.getFlag?.("smalltime", "darkness-link") === true;
@@ -142,7 +151,8 @@ function renderToolkitContent() {
     "oil-lamp-draft",
     "lantern-exterior-draft",
     "campfire-draft",
-    "lit-window-draft"
+    "lit-window-draft",
+    "neutral-light-draft"
   ]);
 
   const sourcePresets = builtinPresets.filter(preset => sourceIds.has(preset.id));
@@ -181,6 +191,29 @@ function renderToolkitContent() {
           ${renderActionButton("scene-exterior", "fa-sun", "EVIL_LIGHT_TOOLKIT.SceneExterior", "EVIL_LIGHT_TOOLKIT.SceneExteriorHint")}
           ${renderActionButton("scene-interior", "fa-house", "EVIL_LIGHT_TOOLKIT.SceneInterior", "EVIL_LIGHT_TOOLKIT.SceneInteriorHint")}
           ${renderActionButton("scene-darkness", "fa-eye-slash", "EVIL_LIGHT_TOOLKIT.SceneDarkness", "EVIL_LIGHT_TOOLKIT.SceneDarknessHint")}
+        </div>
+        <div class="elt-grid-scale">
+          <label class="elt-grid-scale__field">
+            <span>${game.i18n.localize("EVIL_LIGHT_TOOLKIT.GridDistance")}</span>
+            <input
+              type="number"
+              min="0.01"
+              step="any"
+              inputmode="decimal"
+              data-elt-grid-distance
+              value="${Number.isFinite(gridDistance) ? gridDistance : 1}">
+          </label>
+          <label class="elt-grid-scale__field elt-grid-scale__field--units">
+            <span>${game.i18n.localize("EVIL_LIGHT_TOOLKIT.GridUnits")}</span>
+            <input
+              type="text"
+              data-elt-grid-units
+              value="${gridUnits}">
+          </label>
+          <button type="button" class="elt-grid-scale__apply" data-elt-action="scene-grid-scale">
+            <i class="fa-solid fa-check"></i>
+            <span>${game.i18n.localize("EVIL_LIGHT_TOOLKIT.Apply")}</span>
+          </button>
         </div>
       </section>
 
@@ -234,6 +267,14 @@ function renderToolkitContent() {
   `;
 }
 
+function escapeHtmlAttribute(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
 function renderActionButton(action, icon, labelKey, hintKey = null) {
   const hint = hintKey ? game.i18n.localize(hintKey) : "";
   return `
@@ -255,6 +296,7 @@ function renderPresetButton(preset) {
     "lantern-exterior-draft": "fa-sun",
     "campfire-draft": "fa-fire",
     "lit-window-draft": "fa-window-maximize",
+    "neutral-light-draft": "fa-lightbulb",
     "transition-halo-draft": "fa-circle-dot",
     "vision-zone-draft": "fa-eye"
   };

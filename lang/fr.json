@@ -36,5 +36,10 @@
   "EVIL_LIGHT_TOOLKIT.SmallTimeLinked": "SmallTime lié à la scène",
   "EVIL_LIGHT_TOOLKIT.NoPresets": "Aucun preset disponible.",
   "EVIL_LIGHT_TOOLKIT.FooterHint": "Sélectionne une lumière sur la scène avant de l’exporter.",
-  "EVIL_LIGHT_TOOLKIT.Close": "Fermer"
+  "EVIL_LIGHT_TOOLKIT.Close": "Fermer",
+  "EVIL_LIGHT_TOOLKIT.GridDistance": "Distance",
+  "EVIL_LIGHT_TOOLKIT.GridUnits": "Unités",
+  "EVIL_LIGHT_TOOLKIT.Apply": "Appliquer",
+  "EVIL_LIGHT_TOOLKIT.InvalidGridDistance": "La distance par case doit être supérieure à 0.",
+  "EVIL_LIGHT_TOOLKIT.GridScaleApplied": "Échelle de distance de la grille appliquée."
 }

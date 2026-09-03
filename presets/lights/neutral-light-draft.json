@@ -2,24 +2,20 @@
   "schema": "evil-light-toolkit.ambient-light-preset",
   "schemaVersion": 1,
   "foundryGeneration": 14,
-  "id": "vision-zone-draft",
-  "label": "Zone de vision",
+  "id": "neutral-light-draft",
+  "label": "Lumière neutre",
   "ambientLight": {
-    "name": "Zone de vision",
+    "name": "Lumière neutre",
     "walls": true,
-    "vision": true,
+    "vision": false,
     "hidden": false,
     "rotation": 0,
     "config": {
-      "negative": false,
-      "priority": 0,
-      "alpha": 0,
-      "angle": 360,
-      "bright": 0.0,
-      "dim": 10.0,
+      "dim": 6.0,
+      "bright": 3.0,
       "color": null,
-      "coloration": 1,
-      "luminosity": 0,
+      "alpha": 0.5,
+      "luminosity": 0.5,
       "attenuation": 1,
       "saturation": 0,
       "contrast": 0,
@@ -27,13 +23,21 @@
       "animation": {
         "type": null,
         "speed": 0,
-        "intensity": 0,
+        "intensity": 1,
         "reverse": false
       },
       "darkness": {
         "min": 0,
         "max": 1
-      }
-    }
+      },
+      "negative": false,
+      "priority": 0,
+      "angle": 360,
+      "coloration": 1
+    },
+    "flags": {},
+    "elevation": 0,
+    "levels": [],
+    "locked": false
   }
 }

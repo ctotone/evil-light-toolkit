@@ -11,6 +11,7 @@ export const BUILTIN_PRESET_INDEX = [
   "lantern-exterior-draft",
   "campfire-draft",
   "lit-window-draft",
+  "neutral-light-draft",
   "vision-zone-draft",
   "transition-halo-draft"
 ];
