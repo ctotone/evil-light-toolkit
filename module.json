@@ -5,7 +5,10 @@
   "description": "Toolkit Foundry VTT V14 pour préparer l’éclairage des scènes, piloter l’obscurité avec SmallTime et utiliser des presets de lumières réutilisables.",
   "authors": [
     {
-      "name": "Evilbram"
+      "name": "Evilbram",
+      "url": "https://github.com/ctotone",
+      "email": "ctotone@gmail.com",
+      "discord": "evilbram"
     }
   ],
   "version": "1.1.0",
